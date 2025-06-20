@@ -1,0 +1,42 @@
+<%= form_with(model: product, local: true,html: { multipart: true }) do |form| %>
+  <% if product.errors.any? %>
+    <div style="color: red; margin-bottom: 10px;">
+      <h3><%= pluralize(product.errors.count, "error") %> prevented this product from being saved:</h3>
+      <ul>
+        <% product.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div style="margin-bottom: 15px;">
+    <%= form.label :product_name %><br>
+    <%= form.text_field :product_name, style: "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;" %>
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <%= form.label :product_price %><br>
+    <%= form.number_field :product_price, step: 0.01, style: "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;" %>
+  </div>
+
+  <div style="margin-bottom: 15px;">
+    <%= form.label :available_stock %><br>
+    <%= form.number_field :available_stock, style: "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;" %>
+  </div>
+  <div style="margin-bottom: 15px;">
+  <%= form.label :description %><br>
+  <div style="border: 1px solid #ccc; border-radius: 5px; padding: 5px;">
+    <%= form.rich_text_area :description, style: "min-height: 150px; width: 100%;" %>
+  </div>
+</div>
+<div style="margin-bottom: 15px;">
+  <%= form.label :image %><br>
+  <%= form.file_field :image, style: "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;" %>
+</div>
+
+
+  <div style="text-align: center;">
+    <%= form.submit "Save", style: "padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;" %>
+  </div>
+<% end %>

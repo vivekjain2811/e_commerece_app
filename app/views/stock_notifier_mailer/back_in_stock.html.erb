@@ -1,0 +1,4 @@
+<h2>Hi <%= @user.email %> 👋</h2>
+<p><strong><%= @product.product_name %></strong> is now back in stock!</p>
+<p><%= link_to "Buy Now", product_url(@product) %></p>
+<p><%= link_to "Unsubscribe from this product", @unsubscribe_url %></p>
