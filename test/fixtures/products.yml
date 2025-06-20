@@ -1,0 +1,12 @@
+# test/fixtures/products.yml
+apple:
+  product_name: "Apple"
+  product_price: 100.0
+  available_stock: 10
+  user: testuser
+
+banana:
+  product_name: "Banana"
+  product_price: 50.0
+  available_stock: 0
+  user: testuser

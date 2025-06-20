@@ -1,0 +1,19 @@
+current directory: /home/vivek/shop/store/vendor/bundle/ruby/3.4.0/gems/debug-1.11.0/ext/debug
+/home/vivek/.rbenv/versions/3.4.4/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/vivek/shop/store/vendor/bundle/ruby/3.4.0/gems/debug-1.11.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20250620-13300-qj0z9r sitelibdir\=./.gem.20250620-13300-qj0z9r clean
+
+current directory: /home/vivek/shop/store/vendor/bundle/ruby/3.4.0/gems/debug-1.11.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20250620-13300-qj0z9r sitelibdir\=./.gem.20250620-13300-qj0z9r
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: /home/vivek/shop/store/vendor/bundle/ruby/3.4.0/gems/debug-1.11.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20250620-13300-qj0z9r sitelibdir\=./.gem.20250620-13300-qj0z9r install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20250620-13300-qj0z9r/debug
+
+current directory: /home/vivek/shop/store/vendor/bundle/ruby/3.4.0/gems/debug-1.11.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20250620-13300-qj0z9r sitelibdir\=./.gem.20250620-13300-qj0z9r clean
