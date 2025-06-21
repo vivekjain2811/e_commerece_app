@@ -3,6 +3,9 @@ service: shop
 
 # Name of the container image (Docker Hub: username/repo).
 image: vivekjain1101/shop
+ssh:
+  user: ubuntu
+
 
 # Deploy to these servers (your EC2 IP).
 servers:
