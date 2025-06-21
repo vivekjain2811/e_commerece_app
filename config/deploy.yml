@@ -14,7 +14,8 @@ servers:
 
 # Enable SSL auto certification via Let's Encrypt
 proxy:
-  ssl: true
+  ssl: false
+
   host: 3.80.220.15
 
 # Docker Hub credentials
