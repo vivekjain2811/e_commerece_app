@@ -10,13 +10,13 @@ ssh:
 # Deploy to these servers (your EC2 IP).
 servers:
   web:
-    - 13.218.40.131
+    - 54.208.44.141
 
 # Enable SSL auto certification via Let's Encrypt
 proxy:
   ssl: false
 
-  host: 13.218.40.131
+  host: 54.208.44.141
 
 # Docker Hub credentials
 registry:
