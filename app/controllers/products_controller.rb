@@ -7,8 +7,8 @@ class ProductsController < ApplicationController
   end
 
   def first
+  @product = Product.first
   end
-
   def show
   end
 

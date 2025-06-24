@@ -1,48 +1,57 @@
-# Name of your application. Used to uniquely configure containers.
 service: shop
 
-# Name of the container image (Docker Hub: username/repo).
 image: vivekjain1101/shop
+
 ssh:
   user: ubuntu
 
-
-# Deploy to these servers (your EC2 IP).
 servers:
   web:
-    - 3.80.87.179
+    - 16.176.225.168
 
-# Enable SSL auto certification via Let's Encrypt
-proxy:
-  ssl: false
-
-  host: 3.80.87.179
-
-# Docker Hub credentials
 registry:
   server: registry.hub.docker.com
   username: vivekjain1101
   password:
-    - DOCKER_REGISTRY_PASSWORD
+    - DOCKER_REGISTRY_PASSWORD # Set this in .env
 
-# Inject ENV variables into containers
 env:
-  secret:
-    - RAILS_MASTER_KEY
-    - DOCKER_REGISTRY_PASSWORD
   clear:
+    RAILS_ENV: production
+    RAILS_LOG_TO_STDOUT: true
+    RAILS_SERVE_STATIC_FILES: true
     SOLID_QUEUE_IN_PUMA: true
+    DATABASE_URL: postgres://postgres:postgres@16.176.225.168:5432/shop_production
 
-aliases:
-  console: app exec --interactive --reuse "bin/rails console"
-  shell: app exec --interactive --reuse "bash"
-  logs: app logs -f
-  dbc: app exec --interactive --reuse "bin/rails dbconsole"
+  secret:
+    - SECRET_KEY_BASE
+    - POSTGRES_PASSWORD
 
 volumes:
   - "shop_storage:/rails/storage"
 
 asset_path: /rails/public/assets
 
+accessories:
+  db:
+    image: postgres:16.0
+    host: ubuntu@16.176.225.168
+    env:
+      clear:
+        POSTGRES_USER: "postgres"
+        POSTGRES_DB: "shop_production"
+      secret:
+        - POSTGRES_PASSWORD
+    files:
+      - config/init.sql:/docker-entrypoint-initdb.d/setup.sql
+    directories:
+      - data:/var/lib/postgresql/data
+
 builder:
   arch: amd64
+
+aliases:
+  console: app exec --interactive --reuse "bin/rails console"
+  shell: app exec --interactive --reuse "bash"
+  logs: app logs -f
+  dbc: app exec --interactive --reuse "bin/rails dbconsole"
