@@ -36,7 +36,7 @@ gem "devise"
 # Gemfile
 gem "image_processing", "~> 1.2"
 gem "letter_opener"
-gem "pg", "~> 1.5"
+gem "pg", "~> 1.6"
 
 
 
